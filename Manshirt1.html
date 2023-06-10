@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品購買</title>
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<style type="text/css">
+    .star {position:relative;display:inline-block;line-height:1em;}
+    .star input {display:block;float:left;margin:1;padding:0;width:1em;height:1em;font:inherit;background:center 0/cover no-repeat;outline:0 none transparent;
+        -webkit-appearance:none;
+        -moz-appearance:none;
+        appearance:none;
+    }
+    .star label {display:none;float:right;margin-left:0.5em;}
+    .star input:first-child {
+        display:none;
+        /* -webkit-appearance:radio;-moz-appearance:radio;appearance:radio; */
+    }
+
+    .star input:checked ~ input {background-position:center -1em;}
+    .star:hover input:checked ~ input {background-position:center 0;}
+    .star:hover input:hover ~ input {background-position:center -1em;}
+
+    .star input:checked + label {display:block;}
+    .star:hover input:checked + label {display:none;}
+    .star:hover input:hover + label {display:block;}
+    .star {font-size:30px;}
+    .star input {background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAA8CAYAAABxVAqfAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RjJFRDE5Qjg0NTYwMTFFOTk5QzM5RjY0NTY0MDc0MEUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RjJFRDE5Qjk0NTYwMTFFOTk5QzM5RjY0NTY0MDc0MEUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGMkVEMTlCNjQ1NjAxMUU5OTlDMzlGNjQ1NjQwNzQwRSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGMkVEMTlCNzQ1NjAxMUU5OTlDMzlGNjQ1NjQwNzQwRSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PtLQhvIAAAOnSURBVHja7FdbSBRRGHbKSizKzIzNagnSpBvkbmEPXSiK6Lb0EEJEkkUURNFD0IOvQdAVFgoRErqgQQ/RDYSEjKCLuz5EJElEkZRb2YpGaBe371/+ibPTnHXO3CRw4OPMnDlzvvnPOf/l01KpVM5/dYVisYPAIrvfazZJS9B0AZ+AQDwcHlKdY4zNHz7HbTGw0ReLYW0AzQehK8FWp7y2+IzheQaw3lOLYS2RdJu8+giUqFitavEpST8t/1pPLIa10/kUy673QNCq1SoWnxzm/WxgtS2LYRU95wNkXRBYACwD1gBzLcxH/hwHHgHtwCteiSRWYjCDGGTL0e7jvy3zMNj9Ap4BreQZRHwHN5t9jrgR2uPtwBMfSWux7Lc03ttcNPdVDofN6xhIT6f3WE+L4Xh8LJp7wAaPSA/HQqHo38Ml5mOQ09LfBLa6THoApHUZp9pYCDB5E7DDJdIakDb848dmFQjIae8vA7scku7EnjaacZgSa5pGB24cbn84IG0FKQWeHDOObCFzkkNrl9qN1XMcEk/Gqo23Q7zEhYNVZId4lQvE8+wQuxG/K5SIOYQGskxYD0zjtBnPMk5aleRK+gsl/TeAQ3CTBD9/JbfHj4bRXjNJq+ukhYAkgFSieSx0tQB7QfguS2mkcZK5SoWf8CoPkWvQqsVBbtuAahB2DLeZXGs9wA9QCbSFI18BuRXw2arFeWhmYrI3DrQVZbty4CUsTlkiHlWLo2pxpNXiJSb1XS1OBVZwgeibWoyCpBdts37A/FKLhSBOcj9Fqdt+qMULOilftNRf/FCLRSDuMXwX4XrcM7VYjwn2m2wDrVwPJwVHarGXB5CYew68Ztfpk+0hFw8FnBLLuMpcCVSaZMGIxvXzQx5A12JM/sLluH4EzXlBLZ4wU4vfgFK87HaJVN//TLVoyJ+6Whxg8i6HpFWsw9JqEfNFZadaVIskX+Zj8FubpHs4rKbVIuapyxpAmFxXi3QSF+KjTtVcTf6uq0V832ApcrE/62pxiH03aZF0E5q7olq0HLnYZWqEMb8VDP4pqMVGOyFTVIv9CsSdbqnFNsUkn3BLLTZL9nIWkG+yTQPsjo7V4lNjegSaOPj34/6oiWUtbqjFDiacAlzknFwlfH+Wf6Cag5BIXKFUCHAI1U9nObtVrUEtHud66wp9wv19wG5gAnCdCgQs/TYV4mLhkGRTi/p4mVr8jrETVYhdVYvGImBk1aLk791Si6VU/pjFgT8CDAD9y6CbITrTjwAAAABJRU5ErkJggg==');}
+  </style>
+<body>
+    <header><!--slogan-->
+        <div class="slogan">
+            We &nbsp lead. &nbsp&nbsp&nbsp&nbsp Others &nbsp copy.
+        </div>
+    </header>
+
+        <main>
+            <div class="header"><!--LOGO-->
+                <a href="index.html"><img class="cart_logo" src="image/icon/logo.png" ></a>
+            </div>
+    
+            <div><!--搜尋-->
+                <div class="">
+                  <form action="">
+        
+                    <div class="search_position"><!--搜尋輸入欄位-->
+                      <input type="text" class="search_text" placeholder="找商品">
+                    </div>
+        
+                    <div class="button_position"><!--搜尋按鈕-->
+                      <div style="width: 12px; height:12px;">
+                        <button type="submit">
+                          <img class="button_image" src="image/icon/search.png">
+                        </button>
+                      </div>
+                    </div>
+        
+                  </form>
+                </div>
+              </div>
+        
+              <div><!--購物車-->
+                  <div class="cart_position">
+                    <a href="cart.html"><img class="cart" src="image/icon/cart.png"></a>
+                  </div>
+              </div>
+        
+        
+              <div><!--會員登入-->
+                <div class="member_position">
+                  <a href="login.html"><img class="member" src="image/icon/member.png"></a>
+                </div>
+              </div>
+    
+              <div class="cart_nav"> <!--分類-->
+                <nav class="main_nav">
+                    <ul>
+                      <li>
+                        <a href="Newproductgroup.html">最新商品</a>
+                      </li>
+                      <li><a href="index.html#bestsell">熱門商品</a></li>
+                      <li class="menu_item sub_menu_item">
+                        <a href="Allgroup.html">所有商品</a>
+                        <ul class="sub_menu">
+                          <!--下拉選單-->
+                          <li>
+                            <a href="Mangroup.html">男裝</a>
+                          </li>
+                          <li>
+                            <a href="Girlgroup.html">女裝</a>
+                          </li>
+                        </ul>
+                      </li>
+      
+                      <li><a href="story.html">品牌故事</a></li>
+                      <li><a href="shop.html">SHOP店員</a></li>
+                    </ul>
+                </nav>
+            </div>
+        
+
+        <div class="subtitle">
+            <h3>
+                <a href="Allgroup.html">全部商品/</a>
+                <a href="Newproductgroup.html">最新商品</a>
+            </h3>
+        </div>
+
+        <div class="product">
+            <div class="thumbnail-images">
+                <img src="image/men/shirt/ManShirt1/ManShirt1-c.webp"  alt="縮略圖1" onclick="changeImage('image/men/shirt/ManShirt1/ManShirt1-c.webp')">
+                <img src="image/men/shirt/ManShirt1/ManShirt1-a.webp"  alt="縮略圖2" onclick="changeImage('image/men/shirt/ManShirt1/ManShirt1-a.webp')">
+                <img src="image/men/shirt/ManShirt1/ManShirt1-b.webp"  alt="縮略圖3" onclick="changeImage('image/men/shirt/ManShirt1/ManShirt1-b.webp')">
+            </div>
+            <img src="image/men/shirt/ManShirt1/ManShirt1-c.webp" alt="商品圖片" id="current-image">
+            <div>
+                <h2 class="productname">AGILITY Easy Shirts<br> 防潑水雙口袋長袖襯衫</h2>
+
+                <p style="position:relative; top:-20px;">價格: $880</p>
+                <div>
+                    <button class="color-button" onclick="changeColor('黑色')">黑色</button>
+                    <button class="color-button" onclick="changeColor('藍色')">藍色</button>
+                    <button class="color-button" onclick="changeColor('白色')">白色</button>
+                    <button class="color-button" onclick="changeColor('深綠色')">深綠色</button>
+                </div>
+                <div>
+                    <button class="size-button" onclick="changeSize('S')">S</button>
+                    <button class="size-button" onclick="changeSize('M')">M</button>
+                    <button class="size-button" onclick="changeSize('L')">L</button>
+                    <button class="size-button" onclick="changeSize('XL')">XL</button>
+                </div>
+
+                <div class="add_cart_item_button">
+                  <form class="quantity">
+                    <label for="quantity" class="quantity-word">數量:</label>
+                    <div>
+                        <button type="button" id="decrease-btn" class="custom-button">-</button>
+                        <input type="text" id="quantity" name="quantity" min="1" value="1">
+                        <button type="button" id="increase-btn" class="custom-button">+</button>
+                    </div>
+                    <a href="cart.html">
+                      <button class="add_cart_button" type="submit">加入購物車</button>
+                    </a>
+                </form>
+                </div>
+                
+            </div>
+        </div>
+        <div class="toggle-section">
+            <button onclick="toggleDescription()" id="descriptionButton">商品描述</button>
+            <button onclick="toggleReviews()" id="reviewsButton">商品評價</button>
+        </div>
+    
+
+        <div id="description-section">
+            <h3 class="product-description-title">商品描述</h3>
+            <p class="product-description">
+                - 機能感十足，防潑水的面料質感極佳<br>
+                <br>
+                - 落肩寬鬆的設計，各種風格都能夠搭配<br>
+                <br>
+                - 日系風格強烈，單穿與多層次都能輕鬆駕馭<br>
+                <br>
+                - 價格便宜，部分位置可能有些線頭(請見諒)<br>
+                <br>
+                - 性價比高，品質中上，價格超好入手！<br>
+                <br>
+                - 版型偏寬鬆，下單前請務必注意尺寸表<br>
+                <br>
+                - 完全不適合穿合身，喜歡合身請勿購買</p>
+                <br>
+                <br>
+        </div>
+
+        <div class="reviews" id="reviews-section">
+            <h3 class="reviews-title">商品評價</h3>
+            <div id="rating">
+              <span id="stars"></span>
+              <span id="rating-value"></span>
+            </div>
+            <form id="review-form">
+              <div><label for="name">留言者名稱:</label></div>
+              <div><input type="text" id="name" name="name" required></div>
+              <br>
+              <div><label for="rating-input">評分:</label></div>
+              
+              <div class="star">
+                  <input type="radio" name="rdStar" checked="checked"/>
+                  <input type="radio" name="rdStar" value="1"/>
+                  <input type="radio" name="rdStar" value="2"/>
+                  <input type="radio" name="rdStar" value="3"/>
+                  <input type="radio" name="rdStar" value="4"/>
+                  <input type="radio" name="rdStar" value="5"/>
+              </div><br>
+
+              <div><label class="comment_text" for="comment">評論:</label></div>
+              <div><textarea class="comment_comment" id="comment" name="comment" rows="5" cols="50" required></textarea></div>
+              <div><button class="comment_button" type="submit">提交評論</button></div>
+              
+              
+              
+
+            </form>
+          
+
+              <!-- 留言框模板 -->
+              <div class="comment_position">
+                <div class="comment-box">
+                  <div class="comment-info">
+                    <span class="comment-name">留言者姓名: 王小明</span><br>
+                    <span class="comment-rating">評分: ★★★★★</span>
+                  </div>
+                  <div class="comment-content">
+                    <p>留言內容: 很棒!穿起來很舒服!</p>
+                    <p>留言時間: 2023/5/24</p>
+                  </div>
+                </div>
+                <div class="comment-box">
+                  <div class="comment-info">
+                    <span class="comment-name">留言者姓名: 吳小華</span><br>
+                    <span class="comment-rating">評分: ★★★★★</span>
+                  </div>
+                  <div class="comment-content">
+                    <p>留言內容: 穿起來真的好看，物超所值!</p>
+                    <p>留言時間: 2023/5/25</p>
+                  </div>
+                </div>
+                <div class="comment-box">
+                  <div class="comment-info">
+                    <span class="comment-name">留言者姓名: 許小剛</span><br>
+                    <span class="comment-rating">評分: ★★★★☆</span>
+                  </div>
+                  <div class="comment-content">
+                    <p>留言內容: 不錯看，可惜不太適合我。</p>
+                    <p>留言時間: 2023/5/26</p>
+                  </div>
+                </div>
+                <!-- 留言框模板结束 -->
+                <form id="review-form">
+                <!-- 留言表单内容 -->
+                </form>
+              </div>
+              
+
+
+          </div>
+          
+          
+
+
+        
+
+        <script>
+            //點擊按鈕可以選擇顏色和尺寸 一次只能選擇一個顏色一個尺寸
+            var selectedColor = null;
+            var selectedSize = null;
+
+            function changeColor(color) {
+                selectedColor = color;
+                updateSelection();
+            }
+
+            function changeSize(size) {
+                selectedSize = size;
+                updateSelection();
+            }
+
+            function updateSelection() {
+                var colorButtons = document.querySelectorAll('.color-button');
+                colorButtons.forEach(function (btn) {
+                    if (btn.innerText === selectedColor) {
+                        btn.classList.add('selected');
+                    } else {
+                        btn.classList.remove('selected');
+                    }
+                });
+
+                var sizeButtons = document.querySelectorAll('.size-button');
+                sizeButtons.forEach(function (btn) {
+                    if (btn.innerText === selectedSize) {
+                        btn.classList.add('selected');
+                    } else {
+                        btn.classList.remove('selected');
+                    }
+                });
+            }
+
+            //點擊預覽圖會將預覽圖顯示在大圖位置
+            function changeImage(imageUrl) {
+                var currentImage = document.getElementById('current-image');
+                currentImage.src = imageUrl;
+                currentImage.alt = '商品圖片';
+            }
+            
+
+            // 獲取相關元素
+            var decreaseBtn = document.getElementById('decrease-btn');
+            var increaseBtn = document.getElementById('increase-btn');
+            var quantityInput = document.getElementById('quantity');
+
+            // 減少數字的事件處理函式
+            decreaseBtn.addEventListener('click', function() {
+                var currentValue = parseInt(quantityInput.value);
+                if (currentValue > 1) {
+                    quantityInput.value = currentValue - 1;
+                }
+            });
+
+            // 增加數字的事件處理函式
+            increaseBtn.addEventListener('click', function() {
+                var currentValue = parseInt(quantityInput.value);
+                quantityInput.value = currentValue + 1;
+            });
+
+            // 評分相關變數
+            const starsContainer = document.getElementById('stars');
+            const ratingValue = document.getElementById('rating-value');
+            const ratingInput = document.getElementById('rating-input');
+
+            // 留言板相關變數
+            const reviewForm = document.getElementById('review-form');
+            const nameInput = document.getElementById('name');
+            const commentInput = document.getElementById('comment');
+
+
+            // 提交評論
+            function submitReview(event) {
+                event.preventDefault();
+                const name = nameInput.value;
+                const rating = ratingInput.value;
+                const comment = commentInput.value;
+                // 在此處理提交評論的邏輯，例如將評論顯示在畫面上或儲存到資料庫中
+                console.log('評論者名稱:', name);
+                console.log('評分:', rating);
+                console.log('評論:', comment);
+                reviewForm.reset(); // 清除表單內容
+            }
+
+            // 監聽評分表單的變動事件
+            ratingInput.addEventListener('change', function () {
+                setRating(parseInt(ratingInput.value));
+            });
+
+            // 監聽評論表單的提交事件
+            reviewForm.addEventListener('submit', submitReview);
+
+            //商品描述以及評價的切換
+            function toggleDescription() {
+                var descriptionSection = document.getElementById('description-section');
+                var reviewsSection = document.getElementById('reviews-section');
+
+                descriptionSection.style.display = 'block';
+                reviewsSection.style.display = 'none';
+            }
+
+            function toggleReviews() {
+                var descriptionSection = document.getElementById('description-section');
+                var reviewsSection = document.getElementById('reviews-section');
+
+                descriptionSection.style.display = 'none';
+                reviewsSection.style.display = 'block';
+            }
+
+            // 預設顯示商品描述
+            toggleDescription();
+        </script>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        Powered &nbsp by &nbsp WHL &nbsp SHOP
+      </div>
+    </footer>
+</body>
+</html>

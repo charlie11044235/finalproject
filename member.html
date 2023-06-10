@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header><!--slogan-->
+        <div class="slogan">
+            We &nbsp lead. &nbsp&nbsp&nbsp&nbsp Others &nbsp copy.
+        </div>
+    </header>
+
+    <section>
+        <main style="margin-bottom: 60px;">
+            <div class="header"><!--LOGO-->
+                <a href="index.html"><img class="cart_logo" src="image/icon/logo.png" ></a>
+            </div>
+    
+            <div><!--搜尋-->
+                <div class="">
+                <form action="">
+        
+                    <div class="search_position"><!--搜尋輸入欄位-->
+                    <input type="text" class="search_text" placeholder="找商品">
+                    </div>
+        
+                    <div class="button_position"><!--搜尋按鈕-->
+                    <div style="width: 12px; height:12px;">
+                        <button type="submit">
+                        <img class="button_image" src="image/icon/search.png">
+                        </button>
+                    </div>
+                    </div>
+        
+                </form>
+                </div>
+            </div>
+        
+            <div><!--購物車-->
+                <div class="cart_position">
+                    <a href="cart.html"><img class="cart" src="image/icon/cart.png"></a>
+                </div>
+            </div>
+        
+        
+            <div><!--會員登入-->
+                <div class="member_position">
+                <a href="login.html"><img class="member" src="image/icon/member.png"></a>
+                </div>
+            </div>
+    
+            <div class="cart_nav"> <!--分類-->
+                <nav class="main_nav">
+                    <ul>
+                    <li>
+                        <a href="Newproductgroup.html">最新商品</a>
+                    </li>
+                    <li><a href="index.html#bestsell">熱門商品</a></li>
+                    <li class="menu_item sub_menu_item">
+                        <a href="Allgroup.html">所有商品</a>
+                        <ul class="sub_menu">
+                        <!--下拉選單-->
+                        <li>
+                            <a href="Mangroup.html">男裝</a>
+                        </li>
+                        <li>
+                            <a href="Girlgroup.html">女裝</a>
+                        </li>
+                        </ul>
+                    </li>
+    
+                    <li><a href="story.html">品牌故事</a></li>
+                    <li><a href="shop.html">SHOP店員</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </main>
+    </section>
+
+        <div class="member_container" id="container">
+            <div class="member_top-bar"></div>
+
+            <div class="personal-info-form" id="personal-info-section">
+                <h2>會員資料</h2>
+                <div class="member_button-group">
+                <button>登出</button>
+            </div>
+
+            <form class="personal-info-form">
+                <label for="username">姓名:</label>
+                <input type="text" id="username" name="username"value="aka中原資管車銀優" required>
+                
+                <label for="password">密碼:</label>
+                <input type="password" id="password" name="password"value="" required>
+                
+                <label for="email">email:</label>
+                <input type="email" id="email" name="email"value="" required>
+                
+                <label for="address">地址:</label>
+                <textarea id="address" name="address"></textarea>
+                
+                <label for="phone">電話:</label>
+                <input type="tel" id="phone" name="phone"value="414514" pattern="[0-9]+" required>
+                
+                <label for="birth">生日:</label>
+
+                <div class="member_date-input">
+                    <select id="year" name="year"value="年">
+                        <option value="" disabled selected>2012</option>
+                        <!-- 添加年份選項 -->
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                        <!-- 其他年份選項... -->
+                    </select>
+                    <select id="month" name="month"value="月">
+                        <option value="" disabled selected>2</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <select id="day" name="day"value="日">
+                        <option value="" disabled selected>13</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                    </select>
+                </div>
+                    
+                <label for="gender">性别:</label>
+
+                <select id="gender" name="gender">
+                    <option value="male">男</option>
+                    <option value="female">女</option>
+                    <option value="other">其他</option>
+                </select>
+
+                <div class="payment-info">
+                    <h2>支付資訊</h2>
+                    <label for="pay">付款方式:</label>
+                    <select id="pay" name="pay" onchange="toggleCreditCard()">
+                        <option value="card">信用卡</option>
+                        <option value="money">貨到付款</option>
+                    </select>
+                    <div id="creditCardSection" class="group">
+                        <label for="cadnum">信用卡號碼:</label>
+                        <input type="text" id="cadnum1" name="cadnum" value="1234"class="card" maxlength="4">
+                        <input type="text" id="cadnum2" name="cadnum" value="1234"class="card" maxlength="4">
+                        <input type="text" id="cadnum3" name="cadnum" value="1234"class="card" maxlength="4">
+                        <input type="text" id="cadnum4" name="cadnum" value="1234"class="card" maxlength="4">
+                    </div>
+                </div>
+                <button>儲存變更</button>
+                <button>取消</button>
+            </form>
+        </div>
+
+        <div class="message-form" id="message-section">
+            <h2>給我們的建議</h2>
+            <form class="message-form">
+                <textarea id="sugges" name="sugges" placeholder="歡迎您提供寶貴的建議" required></textarea>
+            </form>
+                <div class="bottom-links">
+                    <button>送出</button>
+                    <button>清除</button>
+                </div>
+        </div>
+
+            <div class="order-section"id="order-section">
+                <div>
+                    <h2>訂單內容</h2>
+                    <form class="order-form">
+                    <p>目前沒有訂單可顯示。</p>
+                    </form>
+                </div>
+                <div class="total-price">
+                    <h2>總金額</h2>
+                    <p>NT$ 0</p>
+                </div>
+                <div class="checkout-btn">
+                    <a href="首頁連結">繼續購物</a>
+                    <a href="結帳">結帳</a>
+                </div>
+            </div>
+
+            <div class="track-list-section" id="track-list-section">
+                <div>
+                    <h2>喜愛項目</h2>
+                    
+                    <form class="track-list-form">
+                        <p>目前還沒有追蹤喔</p>
+                    </form>
+                </div>
+                <div class="checkout-btn">
+                    <a href="首頁連結">立即看看</a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            const personalInfoLink = document.getElementById('personal-info-link');
+            const messageLink = document.getElementById('message-link');
+            const orderLink = document.getElementById('order-link');
+            const trackListLink = document.getElementById('track-list-link');
+            const personalInfoSection = document.getElementById('personal-info-section');
+            const messageSection = document.getElementById('message-section');
+            const orderSection = document.getElementById('order-section');
+            const trackListSection = document.getElementById('track-list-section');
+            
+            personalInfoLink.style.fontSize = '22px'; // 設定初始字體大小為22px
+            messageLink.style.fontSize = '18px';
+            orderLink.style.fontSize = '18px';
+            trackListLink.style.fontSize = '18px';
+            // 更改透明度
+            personalInfoLink.style.opacity = '1'; // 根據需要設定透明度
+            messageLink.style.opacity = '0.7'; // 恢復原始透明度
+            orderLink.style.opacity = '0.7'; // 恢復原始透明度
+            trackListLink.style.opacity = '0.7'; // 恢復原始透明度
+            messageSection.style.display = 'none';
+            orderSection.style.display = 'none';
+            trackListSection.style.display = 'none';
+            
+            personalInfoLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                personalInfoSection.style.display = 'block';
+                messageSection.style.display = 'none';
+                orderSection.style.display = 'none';
+                trackListSection.style.display = 'none';
+                
+                // 更改字體大小
+                personalInfoLink.style.fontSize = '22px'; // 根據需要設定字體大小
+                messageLink.style.fontSize = '18px'; // 設定為原始字體大小
+                orderLink.style.fontSize = '18px'; // 設定為原始字體大小
+                trackListLink.style.fontSize = '18px'; // 設定為原始字體大小
+                
+                // 更改透明度
+                personalInfoLink.style.opacity = '1'; // 根據需要設定透明度
+                messageLink.style.opacity = '0.7'; // 恢復原始透明度
+                orderLink.style.opacity = '0.7'; // 恢復原始透明度
+                trackListLink.style.opacity = '0.7'; // 恢復原始透明度
+            });
+            
+            messageLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                personalInfoSection.style.display = 'none';
+                messageSection.style.display = 'block';
+                orderSection.style.display = 'none';
+                trackListSection.style.display = 'none';
+                
+                messageLink.style.fontSize = '22px'; 
+                personalInfoLink.style.fontSize = '18px'; 
+                orderLink.style.fontSize = '18px'; 
+                trackListLink.style.fontSize = '18px'; 
+                
+                messageLink.style.opacity = '1'; 
+                personalInfoLink.style.opacity = '0.7'; 
+                orderLink.style.opacity = '0.7'; 
+                trackListLink.style.opacity = '0.7'; 
+            });
+            
+            orderLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                personalInfoSection.style.display = 'none';
+                messageSection.style.display = 'none';
+                orderSection.style.display = 'block';
+                trackListSection.style.display = 'none';
+                
+                
+                orderLink.style.fontSize = '22px'; 
+                personalInfoLink.style.fontSize = '18px'; 
+                messageLink.style.fontSize = '18px'; 
+                trackListLink.style.fontSize = '18px'; 
+                
+            
+                orderLink.style.opacity = '1'; 
+                personalInfoLink.style.opacity = '0.7'; 
+                messageLink.style.opacity = '0.7'; 
+                trackListLink.style.opacity = '0.7'; 
+            });
+            
+            trackListLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                personalInfoSection.style.display = 'none';
+                messageSection.style.display = 'none';
+                orderSection.style.display = 'none';
+                trackListSection.style.display = 'block';
+                
+                trackListLink.style.fontSize = '22px';
+                personalInfoLink.style.fontSize = '18px';
+                messageLink.style.fontSize = '18px';
+                orderLink.style.fontSiz = '18px';
+            });
+        });
+        </script>
+</body>
+</html>

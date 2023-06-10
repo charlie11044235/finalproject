@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>期末專案</title>
+    <link rel="stylesheet" href="assets/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <header><!--slogan-->
+      <div class="slogan">
+          We &nbsp lead. &nbsp&nbsp&nbsp&nbsp Others &nbsp copy.
+      </div>
+  </header>
+
+  <main>
+      <div class="header"><!--LOGO-->
+        <img class="logo" src="image/icon/logo.png" >
+      </div>
+
+      <div><!--搜尋-->
+        <div class="">
+          <form action="">
+
+            <div class="search_position"><!--搜尋輸入欄位-->
+              <input type="text" class="search_text" placeholder="找商品">
+            </div>
+
+            <div class="button_position"><!--搜尋按鈕-->
+              <div style="width: 12px; height:12px;">
+                <button type="submit">
+                  <img class="button_image" src="image/icon/search.png">
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+      <div><!--購物車-->
+          <div class="cart_position">
+            <a href="cart.html"><img class="cart" src="image/icon/cart.png"></a>
+          </div>
+      </div>
+
+
+      <div><!--會員登入-->
+        <div class="member_position">
+          <a href="login.html"><img class="member" src="image/icon/member.png"></a>
+        </div>
+      </div>
+
+
+      <div class="nav"> <!--分類-->
+          <nav class="main_nav">
+              <ul>
+                <li>
+                  <a href="Newproductgroup.html">最新商品</a>
+                </li>
+                <li><a href="#bestsell">熱門商品</a></li>
+                <li class="menu_item sub_menu_item">
+                  <a href="Allgroup.html">所有商品</a>
+                  <ul class="sub_menu">
+                    <!--下拉選單-->
+                    <li>
+                      <a href="Mangroup.html">男裝</a>
+                    </li>
+                    <li>
+                      <a href="Girlgroup.html">女裝</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li><a href="story.html">品牌故事</a></li>
+                <li><a href="shop.html">SHOP店員</a></li>
+              </ul>
+          </nav>
+      </div>
+
+      <div class="ad-container"><!--動態廣告-->
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 4</div>
+          <img src="./image/advertisement/AD1.jpg" style="width:1250px; height: 700px;">
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 4</div>
+          <img src="./image/advertisement/AD2.jpg" style="width:1250px; height: 700px;">
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 4</div>
+          <img src="./image/advertisement/AD3.png" style="width:1250px; height: 700px;">
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">4 / 4</div>
+          <img src="./image/advertisement/AD4.jpg" style="width:1250px; height: 700px;">
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+        
+        
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+          <span class="dot" onclick="currentSlide(4)"></span> 
+        </div>
+        
+        <script>
+          let slideIndex = 1;
+          let timer;
+
+          showSlides(slideIndex);
+          
+          function plusSlides(n) {
+            clearTimeout(timer);
+            showSlides(slideIndex += n);
+          }
+          
+          function currentSlide(n) {
+            clearTimeout(timer);
+            showSlides(slideIndex = n);
+          }
+
+          function showSlides(n , auto = false) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+            }
+            for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+
+            timer = setTimeout(function() {plusSlides(1);}, 2000); 
+          }
+        </script>
+      </div>
+
+      <!--男女-->
+      <div>
+        <div style="display: flex; text-align: center;">
+          <!--男裝-->
+          <div class="boy">
+              <a href="Mangroup.html"><img src="image/bg/boy.png">
+              <div class="overlay">
+                  <div class="text">男裝</div>
+              </div>
+              </a>
+          </div>
+
+          <!--女裝-->
+          <div class="girl">
+              <a href="Girlgroup.html"><img src="image/bg/girl.jpg">
+              <div class="overlay">
+                  <div class="text">女裝</div>
+              </div>
+              </a>
+          </div>
+        </div>
+      </div>
+
+      <!--活動圖片-->
+      <div style="display: flex; justify-content: center; width: 100%;">
+        <div class="act_position">
+          <img class="act" src="image/AD/AC1.jpg">
+        </div>
+      </div>
+
+      <!--人氣商品-->
+      <div style="display: flex; justify-content: center; width: 100%;">
+        <div class="popular">
+          best-seller
+        </div>
+      </div>
+      <!--人氣商品圖片-->
+      <div>
+        <div style="display: flex; text-align: center;">
+          <!--人氣1-->
+          <div class="pop_1">
+              <a href="Manshirt1.html"><img src="image/men/shirt/ManShirt1/ManShirt1-c.webp">
+                <div class="pop_overlay">
+                  <div style="font-size: 20px; color:white; font-family:微軟黑正體;">No.1</div>
+                </div>
+              </a>
+          </div>
+
+          <!--人氣2-->
+          <div class="pop_2">
+              <a href="Manshirt3.html"><img src="image/men/shirt/ManShirt3/ManShirt3-d.webp">
+                <div class="pop_overlay">
+                  <div style="font-size: 20px; color:white; font-family:微軟黑正體;">No.2</div>
+                </div>
+              </a>
+          </div>
+
+          <!--人氣3-->
+          <div class="pop_3">
+            <a href="Girlshirt3.html"><img src="image/women/shirt/GirlShirt3/GirlShirt3-a.jpg">
+              <div class="pop_overlay">
+                <div style="font-size: 20px; color:white; font-family:微軟黑正體;">No.3</div>
+              </div>
+            </a>
+          </div>
+
+          <!--人氣4-->
+          <div class="pop_4">
+            <a href="Manpants4.html"><img src="image/men/pants/shorts/ManPants4/ManPants4-a.webp">
+              <div class="pop_overlay">
+                <div style="font-size: 20px; color:white; font-family:微軟黑正體;">No.4</div>
+              </div>
+            </a>
+          </div>
+
+          <!--人氣5-->
+          <div class="pop_5">
+            <a href="Girlshirt6.html"><img src="image/women/shirt/GirlShirt6/GirlShirt6-a.jpg">
+              <div class="pop_overlay">
+                <div style="font-size: 20px; color:white; font-family:微軟黑正體;">No.5</div>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+  </main>
+
+  <div id="popular"></div>
+
+  <footer id="bestsell">
+    <div class="footer-content">
+      Powered &nbsp by &nbsp WHL &nbsp SHOP
+    </div>
+  </footer>
+
+</body>
+</html>

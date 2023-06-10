@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="assets/style.css">
+<title>Document</title>
+</head>
+<body class="login-body">   
+    <div class="container" id="container">
+        <div class="top-bar">
+            <div>
+                <a href="#" id="register-link">會員註冊</a>
+                <a href="#" id="login-link">會員登入</a>
+            </div>
+        </div>
+        <div class="button-group">
+            <button>使用LINE登入</button>
+            <button>使用FACEBOOK登入</button>
+        </div>
+        <div class="login-form" id="login-section">
+            <h2>請輸入登入資訊</h2>
+            <form class="login-form">
+                <input type="text" id="username" name="username" placeholder="帳號" required>
+                <input type="password" id="password" name="password" placeholder="密碼" required>
+                <button type="submit">開始購物吧</button>
+            </form>
+            <div class="bottom-links">
+                <a href="#">忘記密碼?</a><br><br>
+                <a href="index.html">直接進入官網</a>
+            </div>
+        </div>
+
+        <div class="registration-form" id="registration-section">
+            <h2>請填寫註冊資訊</h2>
+            <form class="registration-form" action="submit-form.php" method="post">
+                <input type="text" id="name" name="name" placeholder="姓名" required>
+                <input type="email" id="email" name="email" placeholder="電子郵件" required>
+                <input type="password" id="password" name="password" placeholder="密碼" required>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="確認密碼" required>
+                <select id="gender" name="gender">
+                    <option value="" disabled selected>性別</option>
+                    <option value="male">男</option>
+                    <option value="female">女</option>
+                    <option value="other">其他</option>
+                </select>
+                <div class="date-input">
+                    <select id="year" name="year" placeholder="年">
+                        <option value="" disabled selected>年</option>
+                        <!-- 添加年份選項 -->
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                        <!-- 其他年份選項... -->
+                    </select>
+                    <select id="month" name="month" placeholder="月">
+                        <option value="" disabled selected>月</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                
+                    <select id="day" name="day" placeholder="日">
+                        <option value="" disabled selected>日</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                    </select>
+                </div>
+                <input type="tel" id="phone" name="phone" placeholder="電話" pattern="[0-9]+" required>
+                <button type="submit">註冊</button>
+                <div class="bottom-links"><a href="index.html">直接進入官網</a></div>
+                
+            </form>
+        </div>
+        </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const registerLink = document.getElementById('register-link');
+    const loginLink = document.getElementById('login-link');
+    const loginSection = document.getElementById('login-section');
+    const registrationSection = document.getElementById('registration-section');
+
+    loginLink.style.fontSize = '22px'; // 設定初始字體大小為22px
+    registerLink.style.fontSize = '18px';
+    // 更改透明度
+    loginLink.style.opacity = '1'; // 根據需要設置透明度
+    registerLink.style.opacity = '0.7'; // 恢復原始透明度
+    registrationSection.style.display = 'none';
+
+    registerLink.addEventListener('click', function(event) {
+    event.preventDefault();
+    loginSection.style.display = 'none';
+    registrationSection.style.display = 'block';
+
+    // 更改字體大小
+    registerLink.style.fontSize = '22px'; // 根據需要設置字體大小
+    loginLink.style.fontSize = '18px'; // 設定為原始字體大小
+
+    // 更改透明度
+    registerLink.style.opacity = '1'; // 根據需要設定透明度
+    loginLink.style.opacity = '0.7'; // 恢復原始透明度
+    });
+
+    loginLink.addEventListener('click', function(event) {
+    event.preventDefault();
+    loginSection.style.display = 'block';
+    registrationSection.style.display = 'none';
+
+    // 更改字體大小
+    loginLink.style.fontSize = '22px'; // 根據需要設定字體大小
+    registerLink.style.fontSize = '18px'; // 設定為原始字體大小
+
+    // 更改透明度
+    loginLink.style.opacity = '1'; // 根據需要設定透明度
+    registerLink.style.opacity = '0.7'; // 恢復原始透明度
+    });
+    });
+
+
+
+
+
+    const registrationForm = document.querySelector('.registration-form');
+    const password = document.getElementById('password');
+    const confirm_password = document.getElementById('confirm_password');
+
+    function validatePassword() {
+    const passwordValue = password.value;
+    const hasUpperCase = /[A-Z]/.test(passwordValue);
+    const hasLowerCase = /[a-z]/.test(passwordValue);
+    const hasMinimumLength = passwordValue.length >= 8;
+    const hasNoSpecialCharacters = /^[A-Za-z0-9]*$/.test(passwordValue);
+
+    if (!hasUpperCase || !hasLowerCase || !hasMinimumLength || !hasNoSpecialCharacters) {
+    password.setCustomValidity('密碼必須包含大寫和小寫字母，至少8個字符，且不能包含特殊字符');
+    } else {
+    password.setCustomValidity('');
+    validateConfirmPassword();
+    }
+    }
+
+    function validateConfirmPassword() {
+    const passwordValue = password.value;
+    const confirmPasswordValue = confirm_password.value;
+
+    if (passwordValue !== confirmPasswordValue) {
+    confirm_password.setCustomValidity('密碼不匹配');
+    } 
+    else {
+    confirm_password.setCustomValidity('');
+    }
+    }
+
+    registrationForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    validatePassword();
+
+    if (registrationForm.checkValidity()) {
+    // 表單驗證成功，執行提交邏輯
+    // Add your form submission logic here
+    // ...
+    } else {
+    event.stopPropagation();
+    registrationForm.classList.add('was-validated');
+    registrationForm.reportValidity();
+    }
+    });
+
+    password.addEventListener('input', validatePassword);
+    confirm_password.addEventListener('input', validateConfirmPassword);
+
+    function updateDays() {
+    const year = document.getElementById('year').value;
+    const month = document.getElementById('month').value;
+    const daySelect = document.getElementById('day');
+    const lastDay = new Date(year, month, 0).getDate();
+    const currentDay = daySelect.value;
+
+    // Clear current options
+    daySelect.innerHTML = '';
+
+    // Add new options
+    for (let i = 1; i <= lastDay; i++) {
+    const option = document.createElement('option');
+    option.value = i;
+    option.textContent = i;
+
+    // Set selected option if it matches the current day
+    if (i === currentDay) {
+    option.selected = true;
+    }
+
+    daySelect.appendChild(option);
+    }
+    }
+
+    const yearSelect = document.getElementById('year');
+    const monthSelect = document.getElementById('month');
+    const daySelect = document.getElementById('day');
+
+    // Add event listeners to year and month selects
+    yearSelect.addEventListener('change', updateDays);
+    monthSelect.addEventListener('change', updateDays);
+    updateDays();
+    </script>
+</body>
+</html>

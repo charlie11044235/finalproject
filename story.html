@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Brand</title>
+
+</head>
+<body class="story_body">
+    <header><!--slogan-->
+        <div class="slogan">
+            We &nbsp lead. &nbsp&nbsp&nbsp&nbsp Others &nbsp copy.
+        </div>
+    </header>
+
+    <div class="header"><!--LOGO-->
+        <a href="index.html"><img class="cart_logo" src="image/icon/logo.png" ></a>
+    </div>
+
+    <div><!--搜尋-->
+        <div class="">
+            <form action="">
+
+            <div class="search_position"><!--搜尋輸入欄位-->
+                <input type="text" class="search_text" placeholder="找商品">
+            </div>
+
+            <div class="button_position"><!--搜尋按鈕-->
+                <div style="width: 12px; height:12px;">
+                <button type="submit">
+                    <img class="button_image" src="image/icon/search.png">
+                </button>
+                </div>
+            </div>
+
+            </form>
+        </div>
+        </div>
+
+        <div><!--購物車-->
+            <div class="cart_position">
+            <a href="cart.html"><img class="cart" src="image/icon/cart.png"></a>
+            </div>
+        </div>
+
+        <div><!--會員登入-->
+        <div class="member_position">
+            <a href="login.html"><img class="member" src="image/icon/member.png"></a>
+        </div>
+        </div>
+
+        <div class="cart_nav"> <!--分類-->
+        <nav class="main_nav">
+            <ul>
+                <li>
+                <a href="Newproductgroup.html">最新商品</a>
+                </li>
+                <li><a href="index.html#bestsell">熱門商品</a></li>
+                <li class="menu_item sub_menu_item">
+                <a href="Allgroup.html">所有商品</a>
+                <ul class="sub_menu">
+                    <!--下拉選單-->
+                    <li>
+                    <a href="Mangroup.html">男裝</a>
+                    </li>
+                    <li>
+                    <a href="Girlgroup.html">女裝</a>
+                    </li>
+                </ul>
+                </li>
+
+                <li><a href="story.html">品牌故事</a></li>
+                <li><a href="shop.html">SHOP店員</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="story_title"><h2 class="story_h2">品牌故事</h2></div>
+    
+    <div class="story_container">
+        <div class="brand-story">
+            <h2 class="brand-story__title" class="story_h2">起點</h2>
+            <div class="brand-story__image active" style="background-image: url('image/story/story1.jpg');"></div>
+            <p class="brand-story__content">WHL SHOP的故事始於一個對時尚和品味的熱情。會取這個名稱分別是由三個成員的姓氏所想出來的。</p>
+        </div>
+
+        <div class="brand-story">
+            <h2 class="brand-story__title" class="story_h2">使命</h2>
+            <div class="brand-story__image active" style="background-image: url('image/story/story2.jpg');"></div>
+            <p class="brand-story__content">WHL SHOP的使命是為每個人提供獨特而時尚的衣著選擇，讓每個人都能散發自信和美麗。品牌的價值觀是追求高品質、創新和可持續性。WHL SHOP致力於挖掘新興設計師和品牌，並提供一系列精心挑選的時尚單品，旨在滿足消費者對品味和風格的追求。</p>
+        </div>
+
+        <div class="brand-story">
+            <h2 class="brand-story__title" class="story_h2">情感連結</h2>
+            <div class="brand-story__image active" style="background-image: url('image/story/story3.jpg');"></div>
+            <p class="brand-story__content">WHL SHOP的真正魅力在於與消費者的情感連結。品牌明白每個人都有自己獨特的風格和故事，因此WHL SHOP提供多樣化的款式和選擇，讓消費者能夠找到真正適合自己的衣著。品牌希望每一位消費者在穿著WHL SHOP的衣服時，能夠感受到自信和舒適，並通過時尚表達自我。</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const brandStoryImages = document.querySelectorAll('.brand-story__image');
+
+            brandStoryImages.forEach((brandStoryImage) => {
+                brandStoryImage.addEventListener('mouseout', () => {
+                brandStoryImage.classList.add('active');
+                });
+
+                brandStoryImage.addEventListener('mouseover', () => {
+                brandStoryImage.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
